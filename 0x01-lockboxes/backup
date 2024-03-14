@@ -1,0 +1,59 @@
+#!/usr/bin/env python3
+"""
+An implementation of the lockboxes algorithm.
+"""
+from typing import List, Set
+
+
+
+def _canUnlockAll(boxes: List[List[int]], keys: Set):
+    """Return True if all boxes can be unlocked, else False."""
+    
+    try:
+        print('keys:', keys)
+        print('boxes:', boxes)
+        print('--------------')
+
+        # Open a box and retrieve the keys
+        # The key used to open the box will be removed from the set of keys 
+        key = keys.pop()
+        keys.update(boxes[key])
+        # Delete the box
+        boxes[key] = None
+    except IndexError:
+        # Key does not open any box
+        pass
+    except KeyError:
+        # No more keys
+        # Returns True if all boxes are opened (all slots are equal to None)
+        print('No more keys')
+        return not all(boxes)
+    finally:
+        # Open the next box
+        return True and _canUnlockAll(boxes, keys)
+
+
+def canUnlockAll(boxes: List[List[int]]):
+    """Return True if all boxes can be unlocked, else False."""
+    print('boxes:', boxes)
+    print('--------------')
+
+    if not boxes:
+        return True
+
+    # Open the first box and mark it as opened by setting index value to None
+    keys = set()
+    keys.update(boxes[0])
+    boxes[0] = None
+
+    return _canUnlockAll(boxes, keys)
+    
+
+boxes = [[1], [2], [3], [4], []]
+print(canUnlockAll(boxes))
+
+boxes = [[1, 4, 6], [2], [0, 4, 1], [5, 6, 2], [3], [4, 1], [6]]
+print(canUnlockAll(boxes))
+
+boxes = [[1, 4], [2], [0, 4, 1], [3], [], [4, 1], [5, 6]]
+print(canUnlockAll(boxes))
