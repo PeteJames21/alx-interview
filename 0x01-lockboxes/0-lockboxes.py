@@ -1,12 +1,15 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
-An implementation of the lockboxes algorithm.
+An implementation of the lockboxes algorithm using an iterative approach.
 """
-from typing import List, Set
 
 
-def canUnlockAll(boxes: List[List[int]]):
-    """Return True if all boxes can be unlocked, else False."""
+def canUnlockAll(boxes):
+    """
+    Return True if all boxes can be unlocked, else False.
+
+    :param boxes: a list of lists, with each element representing a set of keys
+    """
     # print('boxes:', boxes)
     # print('--------------')
 
