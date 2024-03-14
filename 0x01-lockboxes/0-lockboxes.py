@@ -16,7 +16,7 @@ def canUnlockAll(boxes):
     if not boxes:
         return True
 
-    # Open the first box and mark it as opened by setting index value to None
+    # Open the first box and mark it as opened by setting the value to None
     keys = set()
     keys.update(boxes[0])
     boxes[0] = None
@@ -32,7 +32,7 @@ def canUnlockAll(boxes):
             key = keys.pop()
             if boxes[key]:
                 keys.update(boxes[key])
-            # Mark a box as opened
+            # Mark box as opened
             boxes[key] = None
         except IndexError:
             # Key does not open any box
