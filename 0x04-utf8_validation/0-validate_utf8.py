@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 """
 Validate a UTF-8 data set for proper encoding.
 
