@@ -4,8 +4,10 @@ Validate a UTF-8 data set for proper encoding.
 
 Validation steps:
 1. Convert each int into 8-bit binary by getting the 8 LSBs
-2. Loop through each byte in the sequence while inspecting the leading bytes.
-The leading byte must be followed by the appropriate number of continuation bytes.
+2. Loop through each byte in the sequence while inspecting
+ the leading bytes.
+The leading byte must be followed by the appropriate number
+of continuation bytes.
 """
 
 import re
